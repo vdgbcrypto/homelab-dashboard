@@ -1,44 +1,56 @@
-# Homelab Dashboard
+# 🌸 Homelab Dashboard — Anime / Manga / Futuristic Themes
 
-🌸 Anime / 📖 Manga / 🤖 AI Futuristic themed homelab dashboard.
+A beautifully themed homelab dashboard with three visual styles. Built as a single-page application with zero external dependencies.
 
-A beautiful single-page dashboard with links to all your homelab services and VMs. Choose between three stunning layout themes.
+![Anime Theme](https://img.shields.io/badge/theme-🌸%20Anime-pink)
+![Manga Theme](https://img.shields.io/badge/theme-📖%20Manga-amber)
+![Futuristic Theme](https://img.shields.io/badge/theme-🤖%20Futuristic-cyan)
 
 ## Themes
 
-- **🌸 Anime** — Vibrant pink/purple theme with floating particles, glowing cards, and Japanese subtitle
-- **📖 Manga** — Black & white manga-style with halftone patterns, bold borders, and comic-book feel
-- **🤖 AI Futuristic** — Dark cyberpunk with neon green, glitch effects, scanlines, and grid background
+| Theme | Style | Best For |
+|---|---|---|
+| **Anime** 🌸 | Pink/purple gradients, floating particles, glowing effects | Dark rooms, RGB setups |
+| **Manga** 📖 | Paper-like light background, halftone patterns, bold borders | Bright environments, readability |
+| **Futuristic** 🤖 | Dark cyan grid, scanlines, glitch effects, monospace | Terminal lovers, cyberpunk vibes |
+
+## Quick Start
+
+```bash
+# Python
+python3 -m http.server 8000
+
+# Docker
+docker run -d --name homelab-dashboard -p 8000:8000 \
+  -v $(pwd):/usr/share/nginx/html:ro \
+  nginx:alpine
+```
 
 ## Features
 
-- **3 layout themes** with one-click switching (saved to localStorage)
-- **Service status monitoring** — auto-checks if services are online
-- **Responsive design** — works on desktop and mobile
-- **Zero dependencies** — pure HTML/CSS/JS, no build step
-- **Click any card** to open that service in a new tab
+- **Zero dependencies** — pure HTML/CSS/JS in a single file
+- **Theme switcher** — instant switching with localStorage persistence
+- **Password gate** — client-side auth (use server-side auth for production)
+- **Service cards** — quick links to all your homelab services
+- **Responsive** — works on desktop and mobile
 
-## Services Tracked
+## Configuration
 
-| Service | Port | Description |
-|---------|------|-------------|
-| Docker Worker VM | 192.168.1.83 | 16 vCPU, 7.2GB RAM Debian 13 |
-| TrueNAS SCALE | :8000 | Primary NAS & hypervisor |
-| OpenLab Dashboard | :8899 | This dashboard |
-| ntopng | :3002 | Network traffic analysis |
-| Netdata | :19999 | Real-time system metrics |
-| AdGuard Home | :8090 | Network-wide ad blocking |
-| Portainer | :9443 | Docker container management |
-| Vaultwarden | :8080 | Self-hosted password manager |
-| Syncthing | :8384 | File synchronization |
-| Crypto Trading Bot | :8001 | DOGE/USDT automated trading |
+Edit the `SERVICES` array in the HTML to add your services:
 
-## Setup
+```javascript
+const SERVICES = [
+  { name: 'Grafana', icon: '📊', desc: 'Metrics & dashboards', url: 'https://grafana.example.com' },
+  { name: 'TrueNAS', icon: '🖥️', desc: 'Storage management', url: 'https://truenas.example.com' },
+  // ... add your services
+];
+```
 
-Just open `index.html` in any browser. No server required.
+## Browser Compatibility
 
-To customize services, edit the `services` array and the HTML cards in `index.html`.
+- Chrome / Edge / Firefox / Safari (latest)
+- Mobile browsers (iOS Safari, Android Chrome)
 
 ## License
 
-MIT
+MIT License — see [LICENSE](LICENSE) for details.
