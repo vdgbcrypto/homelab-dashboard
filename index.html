@@ -678,12 +678,12 @@ body {
     <div class="section-title" id="vm-section">🖥️ Virtual Machines</div>
 
     <!-- VM Card: Docker Worker -->
-    <div class="vm-card" onclick="window.open('http://192.168.1.83:9090', '_blank')">
+    <div class="vm-card" onclick="window.open('http://192.168.1.50:9090', '_blank')">
       <div class="vm-header">
         <span class="vm-icon">🐳</span>
         <div>
           <div class="vm-name">Docker Worker</div>
-          <div style="font-size:0.8em;color:var(--text-secondary)">192.168.1.83 / 100.81.76.106</div>
+          <div style="font-size:0.8em;color:var(--text-secondary)">192.168.1.50 / 192.168.1.50</div>
         </div>
       </div>
       <div class="vm-specs">
@@ -710,7 +710,7 @@ body {
     <div class="section-title" id="host-section">🏠 Host & Infrastructure</div>
 
     <!-- TrueNAS SCALE -->
-    <a href="#" class="service-card" onclick="window.open('http://192.168.1.252:8000', '_blank')">
+    <a href="#" class="service-card" onclick="window.open('http://192.168.1.100:8000', '_blank')">
       <span class="card-icon">💾</span>
       <div class="card-title">TrueNAS SCALE</div>
       <div class="card-desc">Primary NAS & hypervisor. ZFS storage, Docker management, VM hosting.</div>
@@ -722,7 +722,7 @@ body {
     </a>
 
     <!-- OpenLab Dashboard -->
-    <a href="#" class="service-card" onclick="window.open('http://192.168.1.252:8899', '_blank')">
+    <a href="#" class="service-card" onclick="window.open('http://192.168.1.100:8899', '_blank')">
       <span class="card-icon">📊</span>
       <div class="card-title">OpenLab Dashboard</div>
       <div class="card-desc">This dashboard! Central hub for all homelab services and monitoring.</div>
@@ -737,7 +737,7 @@ body {
     <div class="section-section" id="network-section">🌐 Network & Monitoring</div>
 
     <!-- ntopng -->
-    <a href="#" class="service-card" onclick="window.open('http://192.168.1.83:3002', '_blank')">
+    <a href="#" class="service-card" onclick="window.open('http://192.168.1.50:3002', '_blank')">
       <span class="card-icon">📡</span>
       <div class="card-title">ntopng</div>
       <div class="card-desc">Network traffic analysis & flow monitoring. Deep packet inspection.</div>
@@ -749,7 +749,7 @@ body {
     </a>
 
     <!-- Netdata -->
-    <a href="#" class="service-card" onclick="window.open('http://192.168.1.83:19999', '_blank')">
+    <a href="#" class="service-card" onclick="window.open('http://192.168.1.50:19999', '_blank')">
       <span class="card-icon">📈</span>
       <div class="card-title">Netdata</div>
       <div class="card-desc">Real-time system metrics, CPU, memory, disk, network monitoring.</div>
@@ -761,7 +761,7 @@ body {
     </a>
 
     <!-- AdGuard -->
-    <a href="#" class="service-card" onclick="window.open('http://192.168.1.83:8090', '_blank')">
+    <a href="#" class="service-card" onclick="window.open('http://192.168.1.50:8090', '_blank')">
       <span class="card-icon">🛡️</span>
       <div class="card-title">AdGuard Home</div>
       <div class="card-desc">Network-wide ad blocking & DNS filtering. Privacy protection.</div>
@@ -776,7 +776,7 @@ body {
     <div class="section-title" id="services-section">⚙️ Services</div>
 
     <!-- Portainer -->
-    <a href="#" class="service-card" onclick="window.open('http://192.168.1.83:9443', '_blank')">
+    <a href="#" class="service-card" onclick="window.open('http://192.168.1.50:9443', '_blank')">
       <span class="card-icon">🐋</span>
       <div class="card-title">Portainer</div>
       <div class="card-desc">Docker container management. Deploy, monitor, and manage containers.</div>
@@ -788,7 +788,7 @@ body {
     </a>
 
     <!-- Vaultwarden -->
-    <a href="#" class="service-card" onclick="window.open('http://192.168.1.83:8080', '_blank')">
+    <a href="#" class="service-card" onclick="window.open('http://192.168.1.50:8080', '_blank')">
       <span class="card-icon">🔐</span>
       <div class="card-title">Vaultwarden</div>
       <div class="card-desc">Self-hosted password manager. Bitwarden-compatible server.</div>
@@ -800,7 +800,7 @@ body {
     </a>
 
     <!-- Syncthing -->
-    <a href="#" class="service-card" onclick="window.open('http://192.168.1.83:8384', '_blank')">
+    <a href="#" class="service-card" onclick="window.open('http://192.168.1.50:8384', '_blank')">
       <span class="card-icon">🔄</span>
       <div class="card-title">Syncthing</div>
       <div class="card-desc">Continuous file synchronization. P2P sync across all devices.</div>
@@ -815,7 +815,7 @@ body {
     <div class="section-title" id="crypto-section">💰 Crypto & Trading</div>
 
     <!-- Crypto Bot Dashboard -->
-    <a href="#" class="service-card" onclick="window.open('http://192.168.1.83:8001', '_blank')">
+    <a href="#" class="service-card" onclick="window.open('http://192.168.1.50:8001', '_blank')">
       <span class="card-icon">🤖</span>
       <div class="card-title">Crypto Trading Bot</div>
       <div class="card-desc">DOGE/USDT automated trading. RSI + Bollinger Bands + EMA + MACD strategy.</div>
@@ -884,15 +884,15 @@ function updateParticles(theme) {
 
 // ===== SERVICE STATUS CHECK =====
 const services = [
-  { id: 'ntopng-status', url: 'http://192.168.1.83:3000/api/0/lua/get/system_stats.lua' },
-  { id: 'netdata-status', url: 'http://192.168.1.83:19999/api/v1/info' },
-  { id: 'adguard-status', url: 'http://192.168.1.83:8090' },
-  { id: 'portainer-status', url: 'http://192.168.1.83:9443/api/status' },
-  { id: 'vaultwarden-status', url: 'http://192.168.1.83:8080' },
-  { id: 'syncthing-status', url: 'http://192.168.1.83:8384' },
-  { id: 'crypto-status', url: 'http://192.168.1.83:8001' },
-  { id: 'truenas-status', url: 'http://192.168.1.252:8000' },
-  { id: 'vm-status', url: 'http://192.168.1.83:9090' },
+  { id: 'ntopng-status', url: 'http://192.168.1.50:3000/api/0/lua/get/system_stats.lua' },
+  { id: 'netdata-status', url: 'http://192.168.1.50:19999/api/v1/info' },
+  { id: 'adguard-status', url: 'http://192.168.1.50:8090' },
+  { id: 'portainer-status', url: 'http://192.168.1.50:9443/api/status' },
+  { id: 'vaultwarden-status', url: 'http://192.168.1.50:8080' },
+  { id: 'syncthing-status', url: 'http://192.168.1.50:8384' },
+  { id: 'crypto-status', url: 'http://192.168.1.50:8001' },
+  { id: 'truenas-status', url: 'http://192.168.1.100:8000' },
+  { id: 'vm-status', url: 'http://192.168.1.50:9090' },
 ];
 
 async function checkService(svc) {
